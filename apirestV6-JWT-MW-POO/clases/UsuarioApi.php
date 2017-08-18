@@ -12,17 +12,17 @@ class UsuarioApi
         $Usuario = new usuario($ArrayDeParametros['nombre'],$ArrayDeParametros['apellido'],$ArrayDeParametros['email'],$ArrayDeParametros['usuario'],$ArrayDeParametros['password']);
         return $response->withJson($Usuario->Guardar());
     }
-    // public function ModificarUsuario($request, $response, $args){
-    //     $ArrayDeParametros = $request->getParsedBody();
-    //     $usuarioBuscado = $ArrayDeParametros['usuarioBuscado'];
-    //     $Usuario = new usuario($ArrayDeParametros['nombre'],$ArrayDeParametros['apellido'],$ArrayDeParametros['email'],$ArrayDeParametros['usuario'],$ArrayDeParametros['password'],$ArrayDeParametros['habilitado']);
-    //     return $response->withJson(usuario::Modificar($Usuario,$usuarioBuscado));
-    // }
-    // public function BajaUsuario($request, $response, $args){
-    //     $ArrayDeParametros = $request->getParsedBody();
-    //     $usuario = $ArrayDeParametros['usuario'];
-    //     return $response->withJson(usuario::Despedir($usuario));
-    // }
+    public function ModificarUsuario($request, $response, $args){
+        $ArrayDeParametros = $request->getParsedBody();
+        $usuarioBuscado = $ArrayDeParametros['usuarioBuscado'];
+        $Usuario = new usuario($ArrayDeParametros['nombre'],$ArrayDeParametros['apellido'],$ArrayDeParametros['email'],$ArrayDeParametros['usuario'],$ArrayDeParametros['password']);
+        return $response->withJson(usuario::Modificar($Usuario,$usuarioBuscado));
+    }
+    public function BajaUsuario($request, $response, $args){
+        $ArrayDeParametros = $request->getParsedBody();
+        $usuario = $ArrayDeParametros['usuario'];
+        return $response->withJson(usuario::Deshabilitar($usuario));
+    }
     public function ActualizarEstadoUsuario($request, $response, $args){
         $ArrayDeParametros = $request->getParsedBody();
         $usuario = intval($ArrayDeParametros['usuario']);
@@ -35,10 +35,10 @@ class UsuarioApi
         $password = $ArrayDeParametros['password'];
         $ret = usuario::LogInVerificar($usuario,$password);
         if ($ret['logIn']){
-            $usuario = usuario::TraerUsuarioPorUsuario($usuario);
+            $Usuario = usuario::TraerUsuarioPorUsuario($usuario);
             $ret['token'] = autentificadorJWT::CrearToken(array(
                 'usuario'=> $Usuario->usuario,
-                'admin' => $Usuario->admin,
+                //'admin' => $Usuario->admin,
             ));
             //$logEmpleado = new logEmpleado($usuario);
             //$logEmpleado->Guardar();
@@ -51,6 +51,10 @@ class UsuarioApi
     public function traerUsuarioPorUsuario($request, $response, $args){
         $ArrayDeParametros = $request->getParsedBody();
         return $response->withJson(usuario::TraerUsuarioPorUsuario($ArrayDeParametros['usuario']));
+    }
+    public function RecuperarPassword($request, $response, $args){
+        $ArrayDeParametros = $request->getParsedBody();
+        return $response->withJson(usuario::RecuperarPassword($ArrayDeParametros['email']));
     }
 }
 ?>

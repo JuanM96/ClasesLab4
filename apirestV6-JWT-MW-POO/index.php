@@ -48,11 +48,11 @@ $app->group('/cd', function () {
 $app->group('/usuario', function () {
 
     $this->post('/alta', \UsuarioApi::class . ':AltaUsuario');
-    $this->post('/baja', \UsuarioApi::class . ':ActualizarEstadoUsuario');
+    $this->post('/baja', \UsuarioApi::class . ':BajaUsuario');
     $this->post('/modificacion', \UsuarioApi::class . ':ModificarUsuario');
     $this->get('/traerTodos', \UsuarioApi::class . ':traerUsuarios');
     $this->post('/traerUno', \UsuarioApi::class . ':traerUsuarioPorUsuario');
-})->add(\verificarJWT::class . ':VerificarToken');
+})->add(\MWparaAutentificar::class . ':VerificarUsuario');
 
 $app->group('/ingreso', function () {
     $this->post('/logIn', \UsuarioApi::class . ':LogIn');
