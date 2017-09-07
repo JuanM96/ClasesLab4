@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Juego } from '../../clases/juego';
 import { JuegoVA } from '../../clases/juego-va';
 
@@ -9,6 +9,7 @@ import { JuegoVA } from '../../clases/juego-va';
   styleUrls: ['./listado-de-resultados.component.css']
 })
 export class ListadoDeResultadosComponent implements OnInit {
+  @Input()
   listado : any[]; 
   constructor() 
   {

@@ -2,6 +2,7 @@
     <!--<input type="button" class="btn-primary" value="Mostrar Listado" (click)="nuevo()">-->
     <p>{{juego.jugador}}</p>
     <p>{{juego.nombre}}</p>
-    <p>{{juego.gano}}</p>
+    <p *ngIf="juego.gano">Gano!! :D</p>
+    <p *ngIf="!juego.gano">Perdio!! D:</p>
     
   </div>
