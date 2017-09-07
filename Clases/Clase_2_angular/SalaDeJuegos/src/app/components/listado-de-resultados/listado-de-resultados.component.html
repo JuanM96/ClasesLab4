@@ -1,5 +1,24 @@
   <div class="center-block" *ngFor="let juego of listado">
-    <!--<input type="button" class="btn-primary" value="Mostrar Listado" (click)="nuevo()">-->
+    <!--<table class="table">
+  <thead class="bg-primary">
+  <tr>
+    <th>
+      Juego
+    </th>
+    <th>
+      Resultado
+    </th>
+  </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let juego of listado'>
+        <td>{{juego.nombre}}</td>
+        <td *ngIf='juego.gano else perdio'>Gano</td>
+        <ng-template #perdio><td>Perdio</td></ng-template>
+      </tr>
+    </tbody>
+
+</table>-->
     <p>{{juego.jugador}}</p>
     <p>{{juego.nombre}}</p>
     <p *ngIf="juego.gano">Gano!! :D</p>

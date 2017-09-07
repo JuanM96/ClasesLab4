@@ -10,11 +10,11 @@ import { JuegoVA } from '../../clases/juego-va';
 })
 export class ListadoDeResultadosComponent implements OnInit {
   @Input()
-  listado : any[]; 
+  listado : any[];
   constructor() 
   {
     this.listado = new Array();
-    this.listado.push(new Juego("juego1","jug1",true),new Juego("juego2","jug2"),new Juego("juego3","jug3",true),new Juego("juego4","jug4"),new Juego("juego5","jug5",true),new Juego("juego6","jug6"));
+    //this.listado.push(new Juego("juego1","jug1",true),new Juego("juego2","jug2"),new Juego("juego3","jug3",true),new Juego("juego4","jug4"),new Juego("juego5","jug5",true),new Juego("juego6","jug6"));
   }
 
   ngOnInit() {
