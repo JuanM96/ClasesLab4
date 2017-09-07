@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { VelocidadArimeticaComponent } from './components/velocidad-arimetica/velocidad-arimetica.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
+import { MenuDelListadoComponent } from './components/menu-del-listado/menu-del-listado.component';
 
 let miRuteo = [
   {path: 'adivina', component: AdivinaElNumeroComponent},
   {path: 'velocidad',component: VelocidadArimeticaComponent},
   {path: '',component: LoginComponent},
-  {path: 'listado',component: ListadoDeResultadosComponent}
+  {path: 'listado',component: ListadoDeResultadosComponent},
+  {path: 'menuList',component: MenuDelListadoComponent}
   ];
 
 @NgModule({
@@ -22,6 +24,7 @@ let miRuteo = [
     VelocidadArimeticaComponent,
     LoginComponent,
     ListadoDeResultadosComponent,
+    MenuDelListadoComponent,
   ],
   imports: [
     BrowserModule,
