@@ -4,9 +4,10 @@ export class Juego {
     public gano: boolean;
     public jugador: string;
 
-    constructor(){
-        this.nombre = "Adivina El Numero";
-        this.gano = false;
+    constructor(nom:string,jug:string,gano:boolean = false){
+        this.nombre = nom;
+        this.jugador = jug;
+        this.gano = gano;
     }
 
     public GenerarNuevo(){

@@ -5,10 +5,14 @@ import { RouterModule,Routes } from '@angular/router';
 import { AdivinaElNumeroComponent } from './components/adivina-el-numero/adivina-el-numero.component';
 import { AppComponent } from './app.component';
 import { VelocidadArimeticaComponent } from './components/velocidad-arimetica/velocidad-arimetica.component';
+import { LoginComponent } from './components/login/login.component';
+import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
 
 let miRuteo = [
   {path: 'adivina', component: AdivinaElNumeroComponent},
-  {path: 'adivina',component: AdivinaElNumeroComponent}
+  {path: 'velocidad',component: VelocidadArimeticaComponent},
+  {path: '',component: LoginComponent},
+  {path: 'listado',component: ListadoDeResultadosComponent}
   ];
 
 @NgModule({
@@ -16,6 +20,8 @@ let miRuteo = [
     AppComponent,
     AdivinaElNumeroComponent,
     VelocidadArimeticaComponent,
+    LoginComponent,
+    ListadoDeResultadosComponent,
   ],
   imports: [
     BrowserModule,
