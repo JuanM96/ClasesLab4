@@ -1,9 +1,12 @@
-  <div class="center-block" *ngFor="let juego of listado">
-    <!--<table class="table">
-  <thead class="bg-primary">
+
+<table class="table table-condensed">
+  <thead class="bg-info">
   <tr>
     <th>
       Juego
+    </th>
+    <th>
+      Jugador
     </th>
     <th>
       Resultado
@@ -13,15 +16,17 @@
     <tbody>
       <tr *ngFor='let juego of listado'>
         <td>{{juego.nombre}}</td>
+        <td>{{juego.jugador}}</td>
         <td *ngIf='juego.gano else perdio'>Gano</td>
         <ng-template #perdio><td>Perdio</td></ng-template>
       </tr>
     </tbody>
 
-</table>-->
+</table>
+<!--<div class="center-block" *ngFor="let juego of listado">
     <p>{{juego.jugador}}</p>
     <p>{{juego.nombre}}</p>
     <p *ngIf="juego.gano">Gano!! :D</p>
     <p *ngIf="!juego.gano">Perdio!! D:</p>
     
-  </div>
+</div>-->
