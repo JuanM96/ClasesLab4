@@ -1,0 +1,5 @@
+modificar el ejemplo dado ... sala de juego tiene mas de 1 juego 
+listado de resultado
+estadistica de juegos
+registrar usuarios
+modificar usuarios

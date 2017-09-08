@@ -8,6 +8,7 @@ import { VelocidadArimeticaComponent } from './components/velocidad-arimetica/ve
 import { LoginComponent } from './components/login/login.component';
 import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
 import { MenuDelListadoComponent } from './components/menu-del-listado/menu-del-listado.component';
+import { JuegosService } from './servicios/juegos.service';
 
 let miRuteo = [
   {path: 'adivina', component: AdivinaElNumeroComponent},
@@ -31,7 +32,7 @@ let miRuteo = [
     FormsModule,
     RouterModule.forRoot(miRuteo)
   ],
-  providers: [],
+  providers: [JuegosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
