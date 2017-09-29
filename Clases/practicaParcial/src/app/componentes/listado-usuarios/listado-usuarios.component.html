@@ -1,0 +1,23 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Mail</th>
+      <th>Sexo</th>
+      <th>Usuario</th>
+      <th>Password</th>
+      <th>Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of listado">
+      <td>{{usuario.nombre}} </td>
+      <td>{{usuario.mail}} </td>
+      <td>{{usuario.sexo}} </td>
+      <td>{{usuario.usuario}} </td>
+      <td>{{usuario.password}} </td>
+      <td>{{usuario.foto}} </td>
+    </tr>
+   
+  </tbody>
+</table>
