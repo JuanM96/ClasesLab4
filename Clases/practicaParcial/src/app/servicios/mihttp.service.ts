@@ -6,8 +6,11 @@ export class MiHttpService {
 
   constructor(public http:Http) {}
 
-  DameUnaPromesa(url:string){
+  DameUnaPromesaGET(url:string){
     return this.http.get(url).toPromise().then(this.ExtraerDato).catch(this.ManejadorDeError);
+  }
+  DameUnaPromesaPOST(url:string,body:any){
+    return this.http.post(url,body).toPromise().then(this.ExtraerDato).catch(this.ManejadorDeError);
   }
   ManejadorDeError(error:Response | any){
     return error;

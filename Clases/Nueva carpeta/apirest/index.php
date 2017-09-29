@@ -5,6 +5,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require './composer/vendor/autoload.php';
 require_once '/clases/AccesoDatos.php';
+
 require_once '/clases/AutentificadorJWT.php';
 require_once '/clases/MWparaCORS.php';
 require_once '/clases/MWparaAutentificar.php';

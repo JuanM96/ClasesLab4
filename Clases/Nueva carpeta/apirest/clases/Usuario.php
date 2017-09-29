@@ -33,7 +33,7 @@ class usuario
 			$this->foto = $foto;
         }
         elseif($foto == null){
-            $this->foto = "http://localhost:8080/apirest/fotos/pordefecto.jpg";
+            $this->foto = "../../../assets/fotos/pordefecto.png";
         }
 
     }
