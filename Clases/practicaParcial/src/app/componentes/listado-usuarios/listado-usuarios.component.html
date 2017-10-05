@@ -1,5 +1,5 @@
-<table class="table table-condensed">
-  <thead>
+<table class="table table-responsive table-bordered">
+  <thead class="table-inverse">
     <tr>
       <th>Nombre</th>
       <th>Mail</th>
@@ -7,17 +7,66 @@
       <th>Usuario</th>
       <th>Password</th>
       <th>Foto</th>
+      <th>Accion</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let usuario of listado">
-      <td>{{usuario.nombre}} </td>
-      <td>{{usuario.mail}} </td>
-      <td>{{usuario.sexo}} </td>
-      <td>{{usuario.usuario}} </td>
-      <td>{{usuario.password}} </td>
-      <td><img src="{{usuario.foto}}"></td>
+    <tr *ngFor="let usuario of listado" >
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF">{{usuario.nombre}} </td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF">{{usuario.nombre}} </td>
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF">{{usuario.mail}} </td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF">{{usuario.mail}} </td>
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF">{{usuario.sexo}}</td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF">{{usuario.sexo}}</td>
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF">{{usuario.usuario}} </td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF">{{usuario.usuario}} </td>
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF">{{usuario.password}} </td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF">{{usuario.password}} </td>
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF"><img src="{{usuario.foto}}"></td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF"><img src="{{usuario.foto}}"></td>
+      <td *ngIf="usuario.sexo == 'femenino'" style="background-color : #FF85EF"><input type="button" class="btn-primary" value="Borrar" (click)="BorrarUsuario(usuario.usuario)"></td>
+      <td *ngIf="usuario.sexo == 'masculino'" style="background-color : #00C3FF"><input type="button" class="btn-primary" value="Borrar" (click)="BorrarUsuario(usuario.usuario)"></td>
     </tr>
    
   </tbody>
 </table>
+<input type="button" class="btn btn-info" value="Actualizar" (click)="Actualizar()">
+<div class="checkbox" style="margin-left:25px;">
+  <br>
+  <md-checkbox [(ngModel)]="mostrarAlta" (change)="Limpiar()">Editar</md-checkbox>
+  <br>
+  <br>
+</div>
+
+<div [hidden]="!mostrarAlta">
+    <form class="example-form">
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="Nombre" [(ngModel)]="usuarioAlta.nombre" [ngModelOptions]="{standalone: true}">
+        </md-form-field>
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="Email" [(ngModel)]="usuarioAlta.mail" [ngModelOptions]="{standalone: true}">
+        </md-form-field>
+            <md-select placeholder="Sexo" [(ngModel)]="usuarioAlta.sexo" [ngModelOptions]="{standalone: true}">
+                <md-option *ngFor="let sexo of sexos" [value]="sexo.value">
+                    {{ sexo.viewValue }}
+                  </md-option>
+            </md-select>
+            <br>
+            <br>
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="Usuario" [(ngModel)]="usuarioAlta.usuario" [ngModelOptions]="{standalone: true}">
+        </md-form-field>
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="Password" [(ngModel)]="usuarioAlta.password" [ngModelOptions]="{standalone: true}">
+        </md-form-field>
+          <md-select placeholder="Foto" [(ngModel)]="usuarioAlta.foto" [ngModelOptions]="{standalone: true}">
+            <md-option *ngFor="let foto of fotos" [value]="foto.value">
+              <img src="{{foto.value}}" width="35px">
+              {{ foto.viewValue }}
+            </md-option>
+          </md-select>
+          <br>
+          <br>
+      <button class="btn btn-primary" (click)="AltaUsuario()">Guardar</button>
+    </form>
+</div>

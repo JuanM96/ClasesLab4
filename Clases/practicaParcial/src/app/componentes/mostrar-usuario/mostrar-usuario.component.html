@@ -1,0 +1,39 @@
+<div class="checkbox" style="margin-left:25px;">
+    <br>
+    <md-checkbox [(ngModel)]="mostrarUsuario" (change)="Limpiar()" >Buscar Usuario</md-checkbox>
+    <br>
+    <br>
+  </div>
+<div [hidden]="!mostrarUsuario">
+  <form class="example-form">
+    <md-form-field class="example-full-width">
+        <input mdInput placeholder="Usuario" [(ngModel)]="usuarioMostrar.usuario" [ngModelOptions]="{standalone: true}">
+    </md-form-field>
+    <button class="btn btn-primary" (click)="MostrarUsuario()">Mostrar</button>
+  </form>
+</div>
+<div [hidden]="!mostrarTabla">
+  <table class="table table-responsive table-bordered">
+      <thead class="table-inverse">
+        <tr>
+          <th>Nombre</th>
+          <th>Mail</th>
+          <th>Sexo</th>
+          <th>Usuario</th>
+          <th>Password</th>
+          <th>Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{usuarioBuscado.nombre}} </td>
+          <td>{{usuarioBuscado.mail}} </td>
+          <td>{{usuarioBuscado.sexo}}</td>
+          <td>{{usuarioBuscado.usuarioBuscado}} </td>
+          <td>{{usuarioBuscado.password}} </td>
+          <td><img src="{{usuarioBuscado.foto}}"></td>
+        </tr>
+      
+      </tbody>
+    </table>
+</div>
