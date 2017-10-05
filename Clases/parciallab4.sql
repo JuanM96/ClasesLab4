@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2017 a las 03:17:01
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 05-10-2017 a las 22:11:14
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,8 +41,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `mail`, `sexo`, `usuario`, `password`, `foto`) VALUES
-(1, 'admin', 'masculino', 'admin@admin.com', 'admin', 'admin', '../../../assets/fotos/pordefecto.png'),
-(2, 'admin2', 'masculino2', 'admin@admin.com2', 'admin2', 'admin2', '../../../assets/fotos/pordefecto.png');
+(1, 'admin', 'admin@admin.com', 'masculino', 'admin', 'admin', '../../../assets/fotos/pordefecto.png'),
+(2, 'admin2', 'admin@admin.com2', 'femenino', 'admin2', 'admin2', '../../../assets/fotos/pordefecto.png'),
+(20, 'pepe', 'pepe@pompin.com', 'masculino', 'pepe32', 'pepe72', '../../../assets/fotos/pordefecto.png');
 
 --
 -- Índices para tablas volcadas
@@ -62,7 +63,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
