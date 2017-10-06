@@ -1,0 +1,56 @@
+<table class="table table-responsive table-bordered">
+  <thead class="table-inverse">
+    <tr>
+      <th>Sabor</th>
+      <th>Tipo</th>
+      <th>Cantidad</th>
+      <th>Foto</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pizza of listado" >
+      <td>{{pizza.sabor}} </td>
+      <td>{{pizza.tipo}} </td>
+      <td>{{pizza.cantidad}}</td>
+      <td><img src="{{pizza.foto}}" width="100 px"></td>
+      <td><input type="button" class="btn-primary" value="Borrar" (click)="BorrarPizza(pizza.sabor,pizza.tipo,pizza.cantidad,pizza.foto)"></td>
+    </tr>
+   
+  </tbody>
+</table>
+<app-pizza [pizza] = "unaPizza"></app-pizza>
+
+<div class="checkbox" style="margin-left:25px;">
+  <br>
+  <md-checkbox [(ngModel)]="mostrarAlta"  >Editar</md-checkbox>
+  <br>
+  <br>
+</div>
+
+<div [hidden]="!mostrarAlta">
+    <form class="example-form">
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="Sabor" [(ngModel)]="pizzaAlta.sabor" [ngModelOptions]="{standalone: true}">
+        </md-form-field>
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="cantidad" [(ngModel)]="pizzaAlta.cantidad" [ngModelOptions]="{standalone: true}">
+        </md-form-field>
+            <md-select placeholder="Tipo" [(ngModel)]="pizzaAlta.tipo" [ngModelOptions]="{standalone: true}">
+                <md-option *ngFor="let tipo of tipos" [value]="tipo.value">
+                    {{ tipo.viewValue }}
+                  </md-option>
+            </md-select>
+            <br>
+            <br>
+          <md-select placeholder="Foto" [(ngModel)]="pizzaAlta.foto" [ngModelOptions]="{standalone: true}">
+            <md-option *ngFor="let foto of fotos" [value]="foto.value">
+              <img src="{{foto.value}}" width="35px">
+              {{ foto.viewValue }}
+            </md-option>
+          </md-select>
+          <br>
+          <br>
+      <button class="btn btn-primary" (click)="AltaPizza()">Guardar</button>
+    </form>
+</div>
