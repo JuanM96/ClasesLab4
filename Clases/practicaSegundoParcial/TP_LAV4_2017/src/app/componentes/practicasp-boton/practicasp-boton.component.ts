@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Inject } from '@angular/core';
+import { Component, OnInit,Input,Inject,Output,EventEmitter } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {DialogOverviewExampleDialog} from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 @Component({
@@ -9,24 +9,52 @@ import {DialogOverviewExampleDialog} from '../dialog-overview-example-dialog/dia
 export class PracticaspBotonComponent implements OnInit {
   @Input()
   accion:any;
-  animal: string;
-  name: string;
+  @Input()
+  nombre:string;
+  @Input()
+  apellido:string;
+  @Input()
+  sexo:string;
+  @Input()
+  direccion:string;
+  @Input()
+  coordenadas:string;
+  @Output() mensajeEvent = new EventEmitter<any>();
 
+  nuevaData:any = {
+    nombre:"",
+    apellido:"",
+    sexo:"",
+    direccion:"",
+    coordenadas:"",
+    nombreBuscado:""
+  }
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
+    console.log(this.nombre);
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
-      data: { name: this.name, animal: this.animal }
+      data: { nombre: this.nombre, apellido: this.apellido, sexo: this.sexo, direccion: this.direccion, coordenadas: this.coordenadas }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      console.log(result);
+      this.nuevaData.nombre = result.nombre;
+      this.nuevaData.apellido = result.apellido;
+      this.nuevaData.sexo = result.sexo;
+      this.nuevaData.direccion = result.direccion;
+      this.nuevaData.coordenadas = result.coordenadas;
+      this.nuevaData.nombreBuscado = this.nombre;
+      this.mensajeEvent.emit(this.nuevaData);
     });
   }
 
   ngOnInit() {
   }
-
+  sendMessage() {
+    //this.mensajeEvent.emit(this.nuevaData);
+    this.mensajeEvent.emit("this.nuevaData");
+  }
 }

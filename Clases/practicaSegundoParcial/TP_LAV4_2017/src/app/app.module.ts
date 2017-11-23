@@ -52,7 +52,7 @@ import { Directiva4Directive } from './directivas/directiva4.directive';
 import { Directiva5Directive } from './directivas/directiva5.directive';
 import { PracticaspComponent } from './componentes/practicasp/practicasp.component';
 import { PracticaspBotonComponent } from './componentes/practicasp-boton/practicasp-boton.component';
-import { DialogOverviewExampleDialogComponent } from './componentes/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import { DialogOverviewExampleDialog } from './componentes/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,7 @@ import { DialogOverviewExampleDialogComponent } from './componentes/dialog-overv
     Directiva5Directive,
     PracticaspComponent,
     PracticaspBotonComponent,
-    DialogOverviewExampleDialogComponent
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -100,6 +100,9 @@ import { DialogOverviewExampleDialogComponent } from './componentes/dialog-overv
     // RouterModule.forRoot(MiRuteo)
   ],
   providers: [JuegoServiceService,MiHttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogOverviewExampleDialog
+  ],
 })
 export class AppModule { }

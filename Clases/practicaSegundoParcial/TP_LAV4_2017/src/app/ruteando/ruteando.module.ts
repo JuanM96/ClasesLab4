@@ -19,7 +19,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule,MatSelectModule,MatInputModule,MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { TicTacToeComponent } from '../componentes/tic-tac-toe/tic-tac-toe.component';
 import { EjemploDirectivasComponent } from '../componentes/ejemplo-directivas/ejemplo-directivas.component';
-import { PracticaspComponent } from './componentes/practicasp/practicasp.component';
+import { PracticaspComponent } from '../componentes/practicasp/practicasp.component';
 
 
 // declaro donde quiero que se dirija

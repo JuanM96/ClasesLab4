@@ -7,6 +7,7 @@ require_once '/clases/AccesoDatos.php';
 require_once '/clases/jugadorApi.php';
 require_once '/clases/RankingApi.php';
 require_once '/clases/VerificarJWT.php';
+require_once '/clases/personaApi.php';
 
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
@@ -31,6 +32,11 @@ $app->group('/jugador', function () {
 $app->group('/ranking', function () {
     $this->post('/alta', \rankingApi::class . ':Alta');
     $this->get('/traerTodos', \rankingApi::class . ':traerRankings');
+})/* ->add(\verificarJWT::class . ':VerificarToken') */;
+$app->group('/persona', function () {
+    $this->post('/alta', \personaApi::class . ':Alta');
+    $this->post('/modificacion', \personaApi::class . ':Modificar');
+    $this->get('/traerTodos', \personaApi::class . ':traerPersonas');
 })/* ->add(\verificarJWT::class . ':VerificarToken') */;
 
 $app->run();

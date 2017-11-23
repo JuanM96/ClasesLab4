@@ -25,28 +25,28 @@ export class PrincipalComponent implements OnInit {
   constructor(public miHttp:MiHttpService,private route: ActivatedRoute,private router: Router) {  }
 
   ngOnInit() {
-    localStorage.setItem("token","por ahora no funciona la api");
-    if (localStorage.getItem("lista") == null) {
-      localStorage.setItem("lista","");
-    }
-    if (localStorage.getItem("usuario") == null) {
-      localStorage.setItem("usuario","");
-    }
-    if (localStorage.getItem("listaUsuario") == null) {
-      localStorage.setItem("listaUsuario","");
-    }
+    // localStorage.setItem("token","por ahora no funciona la api");
+    // if (localStorage.getItem("lista") == null) {
+    //   localStorage.setItem("lista","");
+    // }
+    // if (localStorage.getItem("usuario") == null) {
+    //   localStorage.setItem("usuario","");
+    // }
+    // if (localStorage.getItem("listaUsuario") == null) {
+    //   localStorage.setItem("listaUsuario","");
+    // }
   }
   LogIn(){
-    // this.miHttp.httpPostPromise("http://localhost"/*:8080*/+"/apirestSalaDeJuegos/apirestjugadores/jugador/logIn",this.usuarioLogIn)
-    // .then(datos => {
-    //   //console.info(datos);
-    //   console.log(JSON.stringify(datos));
-    //   localStorage.setItem("token",datos["token"]);
-    //   localStorage.setItem("usuario",datos["jugador"]["usuario"]);
-    //   this.router.navigate(['/Juegos']);
-    // })
-    // .catch(error => {console.log(error)});
-    let logIn:boolean = false;
+    this.miHttp.httpPostPromise("http://localhost"/*:8080*/+"/apirestjugadores/jugador/logIn",this.usuarioLogIn)
+    .then(datos => {
+      //console.info(datos);
+      console.log(JSON.stringify(datos));
+      localStorage.setItem("token",datos["token"]);
+      localStorage.setItem("usuario",datos["jugador"]["usuario"]);
+      this.router.navigate(['/PSP']);
+    })
+    .catch(error => {console.log(error)});
+    /*let logIn:boolean = false;
     let ListadoUsuarios:Array<any> = new Array<any>();
     ListadoUsuarios = JSON.parse(localStorage.getItem('listaUsuario'));
     // ListadoUsuarios.forEach(element => {
@@ -67,16 +67,16 @@ export class PrincipalComponent implements OnInit {
         localStorage.setItem("usuario",element.username);
         this.router.navigate(['/Juegos']);
       }
-    }
+    }*/
   }
   SignUp(){
-    //  this.miHttp.httpPostPromise("http://localhost"/*:8080*/+"/apirestSalaDeJuegos/apirestjugadores/jugador/alta",this.usuarioSignUp)
-    // .then(datos => {
-    //   console.log(JSON.stringify(datos));
-    //   alert(datos["respuesta"]);
-    // })
-    // .catch(error => {console.log(error)});
-    let aux:any;
+     this.miHttp.httpPostPromise("http://localhost"/*:8080*/+"/apirestjugadores/jugador/alta",this.usuarioSignUp)
+    .then(datos => {
+      console.log(JSON.stringify(datos));
+      alert(datos["respuesta"]);
+    })
+    .catch(error => {console.log(error)});
+    /*let aux:any;
     let lista:Array<any> = new Array<any>();
     aux = localStorage.getItem('listaUsuario');
     console.info(localStorage.getItem('listaUsuario'));
@@ -90,7 +90,7 @@ export class PrincipalComponent implements OnInit {
     else{
       console.log("listao else"+lista);
       localStorage.setItem('listaUsuario',JSON.stringify(this.usuarioSignUp));
-    }
+    }*/
   }
   LogInTest(){
     this.usuarioLogIn.username = "admin";
