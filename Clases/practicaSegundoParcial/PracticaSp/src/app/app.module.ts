@@ -46,6 +46,9 @@ import { WsService }  from './servicios/ws/ws.service';
 import { AuthService } from './servicios/auth/auth.service';
 import { VerificarJwtService } from './servicios/verificar-jwt/verificar-jwt.service';
 import { JwtModule } from './jwt/jwt.module';
+import { MapaComponent } from './componentes/mapa/mapa.component';
+import { AgmCoreModule,GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
+import { DirectionsMapDirective } from './servicios/googlr-map.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +62,9 @@ import { JwtModule } from './jwt/jwt.module';
     Directiva5Directive,
     PracticaspComponent,
     PracticaspBotonComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    MapaComponent,
+    DirectionsMapDirective
   ],
   imports: [
     BrowserModule,
@@ -75,12 +80,17 @@ import { JwtModule } from './jwt/jwt.module';
     MatSidenavModule,
     Ng2SmartTableModule,
     MatDialogModule,
-    JwtModule
+    JwtModule,
+    AgmCoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDQeKmiSQJmZqY7nNtuqf4gTRyIE4Qws20',
+      libraries: ["places"]
+    }),
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [JuegoServiceService,MiHttpService,WsService,AuthService,VerificarJwtService],
+  providers: [JuegoServiceService,MiHttpService,WsService,AuthService,VerificarJwtService,GoogleMapsAPIWrapper],
   bootstrap: [AppComponent],
   entryComponents: [
     DialogOverviewExampleDialog
