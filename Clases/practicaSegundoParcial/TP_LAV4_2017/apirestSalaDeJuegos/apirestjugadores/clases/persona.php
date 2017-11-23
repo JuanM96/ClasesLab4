@@ -6,15 +6,17 @@ class Persona
     public $apellido;
     public $sexo;
     public $direccion;
-    public $coordenadas;
-    function __construct($nombre = null,$apellido = null,$sexo = null,$direccion = null,$coordenadas = null,$id = null)
+    public $latitud;
+    public $longitud;
+    function __construct($nombre = null,$apellido = null,$sexo = null,$direccion = null,$latitud = null,$id = null)
     {
         if ($nombre != null && $apellido != null && $sexo != null ) {
             $this->nombre = $nombre;
             $this->apellido = $apellido;
             $this->sexo = $sexo;
             $this->direccion = $direccion;
-            $this->coordenadas = $coordenadas;
+            $this->latitud = $latitud;
+            $this->longitud = $longitud;
         }
         if ($id != null) {
             $this->id = $id;
@@ -25,12 +27,13 @@ class Persona
         //$existeNombre = $this->VerificarNombre();
         //if ($existeNombre['resultado'] == false) {
             $objetoAccesoDato = AccesoDatos::DameUnObjetoAcceso(); 
-            $consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO `persona`(`nombre`, `apellido`, `sexo`, `direccion`, `coordenadas`)VALUES (:nombre,:apellido,:sexo,:direccion,:coordenadas)");
+            $consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO `persona`(`nombre`, `apellido`, `sexo`, `direccion`, `latitud`, `longitud`)VALUES (:nombre,:apellido,:sexo,:direccion,:latitud,:longitud)");
             $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
             $consulta->bindValue(':apellido', $this->apellido, PDO::PARAM_STR);
             $consulta->bindValue(':sexo', $this->sexo, PDO::PARAM_STR);
             $consulta->bindValue(':direccion', $this->direccion, PDO::PARAM_STR);
-            $consulta->bindValue(':coordenadas', $this->coordenadas, PDO::PARAM_STR);
+            $consulta->bindValue(':latitud', $this->latitud, PDO::PARAM_STR);
+            $consulta->bindValue(':longitud', $this->longitud, PDO::PARAM_STR);
             $itsOk = $consulta->execute();
         //}
         if ($itsOk) {
@@ -46,13 +49,13 @@ class Persona
         //$Usuario = usuario::TraerUsuarioPorUsuario($usuario);
         //if ($Usuario != false) {
             $objetoAccesoDato = AccesoDatos::DameUnObjetoAcceso(); 
-		    $consulta =$objetoAccesoDato->RetornarConsulta("UPDATE `persona` SET `nombre`=:nombre,`apellido`=:apellido,`sexo`=:sexo,`direccion`=:direccion,`coordenadas`=:coordenadas WHERE nombre = :nombreBuscado");
+		    $consulta =$objetoAccesoDato->RetornarConsulta("UPDATE `persona` SET `nombre`=:nombre,`apellido`=:apellido,`sexo`=:sexo,`direccion`=:direccion,`latitud`=:latitud WHERE nombre = :nombreBuscado");
 		    $consulta->bindValue(':nombre', $nuevaPersona->nombre, PDO::PARAM_STR);
             $consulta->bindValue(':apellido', $nuevaPersona->apellido, PDO::PARAM_STR);
             $consulta->bindValue(':sexo', $nuevaPersona->sexo, PDO::PARAM_STR);
             $consulta->bindValue(':direccion', $nuevaPersona->direccion, PDO::PARAM_STR);
             $consulta->bindValue(':nombreBuscado', $nombre, PDO::PARAM_STR);
-            $consulta->bindValue(':coordenadas', $nuevaPersona->coordenadas, PDO::PARAM_STR);
+            $consulta->bindValue(':latitud', $nuevaPersona->latitud, PDO::PARAM_STR);
             $itsOk = $consulta->execute();
         //}
         if ($itsOk) {

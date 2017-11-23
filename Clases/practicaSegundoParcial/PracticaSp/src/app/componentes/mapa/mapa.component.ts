@@ -11,11 +11,14 @@ declare var jQuery:any;
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
-  public latitude: number;
+  public zoom: number;
+  public latitud = -34.599722222222;
+  public longitud = -58.381944444444;
+  /*public latitude: number;
   public longitude: number;
+  public zoom: number;
   public destinationInput: FormControl;
   public destinationOutput: FormControl;
-  public zoom: number;
   public iconurl: string;
   public mapCustomStyles : any;
   public estimatedTime: any;
@@ -32,22 +35,22 @@ export class MapaComponent implements OnInit {
   @ViewChild(DirectionsMapDirective) vc: DirectionsMapDirective;
 
   public origin :any ; // its a example aleatory position
-  public destination : any; // its a example aleatory position
+  public destination : any; // its a example aleatory position*/
   constructor(
-    private mapsAPILoader: MapsAPILoader,
+    /*private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private gmapsApi: GoogleMapsAPIWrapper,
-    private _elementRef : ElementRef
+    private _elementRef : ElementRef*/
   ) {
   }
   
   ngOnInit() {
     //set google maps defaults
     this.zoom = 4;
-    this.latitude = 39.8282;
+    /*this.latitude = 39.8282;
     this.longitude = -98.5795;
     //this.iconurl = '../image/map-icon.png';
-    this.iconurl = '../image/map-icon.png';
+    //this.iconurl = '../image/map-icon.png';
 
    // this.mapCustomStyles = this.getMapCusotmStyles();
     //create search FormControl
@@ -69,10 +72,10 @@ export class MapaComponent implements OnInit {
       
                this.setupPlaceChangedListener(autocompleteInput, 'ORG');
               this.setupPlaceChangedListener(autocompleteOutput, 'DES');
-    });
+    });*/
   }
   
-  private setupPlaceChangedListener(autocomplete: any, mode: any ) {
+  /*private setupPlaceChangedListener(autocomplete: any, mode: any ) {
     autocomplete.addListener("place_changed", () => {
           this.ngZone.run(() => {
             //get the place result
@@ -133,6 +136,6 @@ export class MapaComponent implements OnInit {
 
   private getMapCusotmStyles() {
     // Write your Google Map Custom Style Code Here.
-  }
+  }*/
 
 }
