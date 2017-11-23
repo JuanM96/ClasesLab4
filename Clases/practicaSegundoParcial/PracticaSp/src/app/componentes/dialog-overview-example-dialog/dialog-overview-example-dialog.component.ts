@@ -13,7 +13,8 @@ export class DialogOverviewExampleDialog {
     apellido:"",
     sexo:"",
     direccion:"",
-    coordenadas:""
+    latitud:"",
+    longitud:""
   }
     constructor(
       public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,

@@ -12,7 +12,10 @@
       <input matInput placeholder="Direccion" value = "{{data.direccion}}" [(ngModel)]="nuevoUsuario.direccion" [ngModelOptions]="{standalone: true}">   
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Coordenadas" value = "{{data.coordenadas}}" [(ngModel)]="nuevoUsuario.coordenadas" [ngModelOptions]="{standalone: true}">
+      <input matInput placeholder="Latitud" value = "{{data.latitud}}" [(ngModel)]="nuevoUsuario.latitud" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Longitud" value = "{{data.longitud}}" [(ngModel)]="nuevoUsuario.longitud" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
     <button mat-raised-button color = "warn" (click)="OnClick()">Guardar</button>
   </form>

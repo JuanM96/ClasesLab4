@@ -18,7 +18,9 @@ export class PracticaspBotonComponent implements OnInit {
   @Input()
   direccion:string;
   @Input()
-  coordenadas:string;
+  latitud:string;  
+  @Input()
+  longitud:string;
   @Output() mensajeEvent = new EventEmitter<any>();
 
   nuevaData:any = {
@@ -26,16 +28,19 @@ export class PracticaspBotonComponent implements OnInit {
     apellido:"",
     sexo:"",
     direccion:"",
-    coordenadas:"",
+    latitud:"",
+    longitud:"",
     nombreBuscado:""
   }
+  ocultarMapa:boolean;
+  ocultarMostrar:boolean;
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     console.log(this.nombre);
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
-      data: { nombre: this.nombre, apellido: this.apellido, sexo: this.sexo, direccion: this.direccion, coordenadas: this.coordenadas }
+      data: { nombre: this.nombre, apellido: this.apellido, sexo: this.sexo, direccion: this.direccion, latitud: this.latitud, longitud: this.longitud }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -45,16 +50,27 @@ export class PracticaspBotonComponent implements OnInit {
       this.nuevaData.apellido = result.apellido;
       this.nuevaData.sexo = result.sexo;
       this.nuevaData.direccion = result.direccion;
-      this.nuevaData.coordenadas = result.coordenadas;
+      this.nuevaData.latitud = result.latitud;
+      this.nuevaData.longitud = result.longitud;
       this.nuevaData.nombreBuscado = this.nombre;
       this.mensajeEvent.emit(this.nuevaData);
     });
   }
 
   ngOnInit() {
+    this.ocultarMapa = false;
+    this.ocultarMostrar = false;
   }
   sendMessage() {
     //this.mensajeEvent.emit(this.nuevaData);
     this.mensajeEvent.emit("this.nuevaData");
+  }
+  MostrarMapa(){
+    this.ocultarMapa = true;
+    this.ocultarMostrar = true;
+  }
+  OcultarMapa(){
+    this.ocultarMapa = false;
+    this.ocultarMostrar = false;
   }
 }

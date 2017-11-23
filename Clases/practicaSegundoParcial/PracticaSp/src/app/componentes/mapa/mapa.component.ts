@@ -11,9 +11,11 @@ declare var jQuery:any;
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
-  public zoom: number;
-  public latitud = -34.599722222222;
-  public longitud = -58.381944444444;
+  @Input()
+  latitud:number
+  @Input()
+  longitud:number
+  zoom: number;
   /*public latitude: number;
   public longitude: number;
   public zoom: number;
@@ -45,8 +47,12 @@ export class MapaComponent implements OnInit {
   }
   
   ngOnInit() {
-    //set google maps defaults
+    console.log(this.latitud);
+    console.log(this.longitud);
     this.zoom = 4;
+  }
+    //set google maps defaults
+
     /*this.latitude = 39.8282;
     this.longitude = -98.5795;
     //this.iconurl = '../image/map-icon.png';
@@ -73,7 +79,7 @@ export class MapaComponent implements OnInit {
                this.setupPlaceChangedListener(autocompleteInput, 'ORG');
               this.setupPlaceChangedListener(autocompleteOutput, 'DES');
     });*/
-  }
+  //}
   
   /*private setupPlaceChangedListener(autocomplete: any, mode: any ) {
     autocomplete.addListener("place_changed", () => {
@@ -137,5 +143,4 @@ export class MapaComponent implements OnInit {
   private getMapCusotmStyles() {
     // Write your Google Map Custom Style Code Here.
   }*/
-
 }
