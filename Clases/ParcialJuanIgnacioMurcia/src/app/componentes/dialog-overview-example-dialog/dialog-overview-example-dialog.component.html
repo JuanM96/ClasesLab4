@@ -1,0 +1,21 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nombre" value = "{{data.nombre}}" [(ngModel)]="nuevoUsuario.nombre" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Apellido" value = "{{data.apellido}}" [(ngModel)]="nuevoUsuario.apellido" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="Sexo" value = "{{data.sexo}}" [(ngModel)]="nuevoUsuario.sexo" [ngModelOptions]="{standalone: true}">   
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Direccion" value = "{{data.direccion}}" [(ngModel)]="nuevoUsuario.direccion" [ngModelOptions]="{standalone: true}">   
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Latitud" value = "{{data.latitud}}" [(ngModel)]="nuevoUsuario.latitud" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Longitud" value = "{{data.longitud}}" [(ngModel)]="nuevoUsuario.longitud" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    <button mat-raised-button color = "warn" (click)="OnClick()">Guardar</button>
+  </form>

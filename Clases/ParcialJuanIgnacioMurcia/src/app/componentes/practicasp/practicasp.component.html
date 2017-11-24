@@ -1,0 +1,26 @@
+<button mat-raised-button color = "warn" (click) = "LogOut()">Salir</button>
+
+<!-- <button mat-raised-button color = "warn" (click) = "Download()">Download CSV</button> -->
+<table class="table table-responsive table-bordered">
+  <thead class="table-inverse">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Legajo</th>
+      <th>Edad</th>
+      <th>Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of listado" >
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.tipo}}</td>
+      <td>{{usuario.legajo}}</td>
+      <td>{{usuario.edad}}</td>
+      <td><img src="{{usuario.foto}}" width="100px"></td>
+      <td>
+        <app-practicasp-boton (mensajeEvent) = "dataModificada($event)" [accion] = "'borrar'" [id] = usuario.id><app-practicasp-boton></td>
+
+        </tr>      
